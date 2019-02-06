@@ -6,6 +6,7 @@
 package tema_06_ejer_9;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -40,12 +41,54 @@ public class Alumno
     
     public void pedirNotas() throws RangoException 
     { 
+        Scanner tec = new Scanner(System.in);
+        double nota = 0;
         
         for (int i = 0; i < Alumno.numeromaterias; i++) 
         {
-            System.out.println("");
+            System.out.println("Dime La nota del alumno: ");
+            nota = tec.nextDouble();
+            notas.add(nota);
             
+            if(nota > 10 || nota < 0)
+            {
+               throw new RangoException("Esto no se puede hacer, Nota invalida");
+            }
         }
+    }
+    
+    public void modificarNota(int posicion, double nnota) throws RangoException, ArrayIndexOutOfBoundsException 
+    { 
+       if(nnota < 0 || nnota > 10)
+       {
+           throw new RangoException("Esto no se puede hacer, Nota invalida");
+       }else if(posicion > Alumno.numeromaterias)
+       {
+          throw new RangoException("Esto no se puede hacer, Nota invalida");
+       }else
+       {
+           notas.remove(nnota);
+           notas.add(posicion, nnota);
+           System.out.println("-----------------------");
+           System.out.println("Se han modificado las notas del Alumno");
+           System.out.println("-----------------------");
+           throw new ArrayIndexOutOfBoundsException("Esto no se puede hacer, posicion invalida");
+       }
+    }
+    
+    public void imprimirCalificaciones()
+    { 
+        Scanner tec = new Scanner(System.in);
+        
+        
+        System.out.print("Dime el nombre del alumno: ");
+        this.nombre = tec.nextLine();
+        
+        for (int i = 0; i < notas.size(); i++) 
+        {
+            System.out.println("Las notas del alumno son: " + notas);
+        }
+        
     }
     
 }
