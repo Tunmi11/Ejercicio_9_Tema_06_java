@@ -18,27 +18,50 @@ public class Alumno
     private String nombre;
     private ArrayList<Double> notas = new ArrayList<>();
     
+    /**
+     * Constructor por defecto
+     * le pasamos los atributos por defecto y iniciamos el array
+     */
     public Alumno()
     {
         nombre = "";
         notas = new ArrayList<>();
     }
 
+    /**
+     * Costructor por parametros 
+     * al que unicamente le pasaremos un atributo el nombre
+     * @param nombre nombre del alumno
+     */
     public Alumno(String nombre) 
     {
         this.nombre = nombre;
     }
 
+    /**
+     * metodo get del nombre del alumno
+     * @return devuelve el nombre del alumno
+     */
     public String getNombre()
     {
         return nombre;
     }
 
+    /**
+     * metodo set del nombre
+     * modifica el nombre
+     * @param nombre nombre del alumno
+     */
     public void setNombre(String nombre) 
     {
         this.nombre = nombre;
     }
-    
+    /**
+     * Metodo de pedir notas para el alumno
+     * tenemos que controlar que las notas sean validas para el alumno mediante una excepcion
+     * pedimos las notas hasta el numero de materias del alumno, lo agregamos al array
+     * @throws RangoException controla que las notas sean validas
+     */
     public void pedirNotas() throws RangoException 
     { 
         Scanner tec = new Scanner(System.in);
@@ -56,7 +79,15 @@ public class Alumno
             }
         }
     }
-    
+    /**
+     * Metodo que modifica una nota del alumno
+     * con dos excepciones que controlar que la nota sea validad y la posicion sea correcta del array
+     * 
+     * @param posicion posicion de la nota para luego cambiarla o no
+     * @param nnota nota del alumno
+     * @throws RangoException controla que la nota sea valida
+     * @throws ArrayIndexOutOfBoundsException controla que la posicion sea valida
+     */
     public void modificarNota(int posicion, double nnota) throws RangoException, ArrayIndexOutOfBoundsException 
     { 
        if(nnota < 0 || nnota > 10)
@@ -75,7 +106,12 @@ public class Alumno
            
        }
     }
-    
+    /**
+     * Metodo para mostrar la notas del alumno
+     * pedimos el nombre del alumno y sus apellidos
+     * recorremos el array para sacar las notas 
+     * mostramos el nombre y las notas
+     */
     public void imprimirCalificaciones()
     { 
         Scanner tec = new Scanner(System.in);
