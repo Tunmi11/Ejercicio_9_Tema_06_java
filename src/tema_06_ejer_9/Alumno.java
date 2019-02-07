@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Alumno 
 {
-    private static int numeromaterias = 5;
+    public static int numeromaterias = 5;
     private String nombre;
     private ArrayList<Double> notas = new ArrayList<>();
     
@@ -64,7 +64,7 @@ public class Alumno
            throw new RangoException("Esto no se puede hacer, Nota invalida");
        }else if(posicion > Alumno.numeromaterias)
        {
-          throw new RangoException("Esto no se puede hacer, Nota invalida");
+          throw new ArrayIndexOutOfBoundsException("Esto no se puede hacer, posicion invalida");
        }else
        {
            notas.remove(nnota);
@@ -72,7 +72,7 @@ public class Alumno
            System.out.println("-----------------------");
            System.out.println("Se han modificado las notas del Alumno");
            System.out.println("-----------------------");
-           throw new ArrayIndexOutOfBoundsException("Esto no se puede hacer, posicion invalida");
+           
        }
     }
     
@@ -83,10 +83,14 @@ public class Alumno
         
         System.out.print("Dime el nombre del alumno: ");
         this.nombre = tec.nextLine();
+        System.out.print("Dime el apellido del alumno: ");
+        String apellido = tec.nextLine();
         
+        System.out.println("Alumno: " + this.nombre + " " + apellido);
         for (int i = 0; i < notas.size(); i++) 
         {
-            System.out.println("Las notas del alumno son: " + notas);
+            
+            System.out.println("Las notas del alumno son: " + notas.get(i));
         }
         
     }
