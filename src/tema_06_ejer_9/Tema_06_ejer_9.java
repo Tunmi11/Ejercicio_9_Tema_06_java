@@ -1,8 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+  Alumno: juanmi lopez muela
+  C.F.G.S. Desarrollo de Aplicaciones Multiplataforma
+  Módulo Profesional: Programación
+  Curso escolar: 2017/2018
+  Profesor: Francisco Jesús Delgado Almirón
+  Instituto Tecnológico Poniente
  */
+
 package tema_06_ejer_9;
 
 import java.util.Scanner;
@@ -17,13 +21,18 @@ public class Tema_06_ejer_9 {
      * @param args the command line arguments
      */
     
-    public static void main(String[] args) throws RangoException, ArrayIndexOutOfBoundsException 
+    public static void main(String[] args)
     {
+        //creamos los teclados
          Scanner tec = new Scanner(System.in);
          Scanner tec2 = new Scanner(System.in);
          Scanner tec3 = new Scanner(System.in);
+         
+         //creamos las variables 
          int opcion = 0;
          String cambiar = "";
+         
+         //hacemos el main
          try{
 
              Alumno alu = new Alumno();
