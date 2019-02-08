@@ -11,6 +11,10 @@ package tema_06_ejer_9;
  */
 public class RangoException extends Exception
 {
+    /**
+     * Excepcion creada para controlar las notas del alumno
+     * @param mensaje mensaje que emite para mostrar el error
+     */
     public RangoException(String mensaje)
     {
         super(mensaje);
